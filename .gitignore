@@ -1,0 +1,13 @@
+# Java/IntelliJ junk
+target/
+*.class
+.idea/
+*.iml
+
+# Angular/Node junk
+node_modules/
+dist/
+.vscode/
+
+# Environment secrets
+.env
