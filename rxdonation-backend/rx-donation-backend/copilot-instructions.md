@@ -9,7 +9,7 @@ Concise developer-facing guidelines for backend implementation aligned to the Rx
 **Scope**: Backend API serves two distinct user types (Donors and Pharmacies) with separate workflows. Full-stack deployment targets AWS with professional-grade DevOps (Docker, RDS, S3, SES, CI/CD).
 
 ## Tech Stack (backend-focused)
-- **Runtime**: Java 17 or 21, Spring Boot 3.x
+- **Runtime**: Java 21, Spring Boot 3.x
 - **Security**: Spring Security with JWT (stateless, no sessions), RBAC (roles: ROLE_DONOR, ROLE_PHARMACY, ROLE_ADMIN)
 - **Persistence**: Spring Data JPA, Hibernate Spatial, LocationTech JTS
 - **Database**: PostgreSQL with PostGIS extension (SRID 4326)
