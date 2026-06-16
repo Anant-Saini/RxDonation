@@ -2,7 +2,7 @@ package com.rxdonation.backend.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "users")
@@ -23,15 +23,23 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    private String name;
-
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private UserRole role;
 
-    // This field is for the Pharmacy Unique ID you mentioned
-    private String pharmacyUniqueId;
+    @Column(name = "is_verified")
+    private Boolean isVerified;
 
-    private boolean isEmailVerified = false;
+    @Column(name = "created_at", columnDefinition = "TIMESTAMP WITH TIME ZONE")
+    private OffsetDateTime createdAt;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
+    @PrePersist
+    protected void onCreate() {
+        if (createdAt == null) {
+            createdAt = OffsetDateTime.now();
+        }
+        if (isVerified == null) {
+            isVerified = false;
+        }
+    }
 }
